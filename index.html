@@ -1,0 +1,153 @@
+<!doctype html>
+<html>
+    <head>
+        <link rel="icon" type="image/x-icon" href="Dublin.png">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dublin Choclates</title>
+  <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <section id="nav_section">
+            <nav>
+              <div id="navigation">
+                <div>
+                  <img id="logo" src="Dublin.png" />
+                </div>
+                <div>
+                  <ul>
+                    <li><a href="task2.html" target="_blank">Shop Online</a></li>
+                    <li><a href="#">Locate Us</a></li>
+                    <li><a href="#" target="_blank">About us</a></li>
+                    <li><a href="#" target="_blank">Contact us</a></li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
+          </section>
+          <div id="banner">
+            <img src="banner.png" style="width: 100%;height: 50vh;"/>
+          </div>
+
+          <section id="carousel">
+            <div class="carousel_container">
+              <div class="carousel_mySlides fade">
+                  <img src="choclate-1.png" style="width: 100%;height: 75vh">
+      
+              </div>
+              <div class="carousel_mySlides fade">
+      
+                  <img src="choclate-2.png" style="width: 100%;height: 75vh">
+      
+              </div>
+              <div class="carousel_mySlides fade">
+      
+                  <img src="choclate-3.png" style="width: 100%;height: 75vh">
+      
+              </div>
+              <div class="carousel_mySlides fade">
+      
+                <img src="choclate-4.png" style="width: 100%;height: 75vh">
+    
+            </div>
+            <div class="carousel_mySlides fade">
+      
+              <img src="choclate-5.png" style="width: 100%;height: 75vh">
+  
+          </div>
+          
+
+
+              <div style="text-align:center; margin:-5vh; width: 100%;">
+      
+                  <span class="carousel_dot"></span>
+                  <span class="carousel_dot"></span>
+                  <span class="carousel_dot"></span>
+                  <span class="carousel_dot"></span>
+                  <span class="carousel_dot"></span>
+      
+              </div>
+              <a class="carousel_prev" onclick="prevSlide()">&#10094;</a>
+              <a class="carousel_next" onclick="showSlides()">&#10095;</a>
+          </div>
+          </section>
+
+          <section class="about">
+            <div class="about-text">
+              <div class="about-image" style="    align-self: center;">
+                <img src="Dublin.png" alt="Profile Picture">
+              </div>
+              <div style="    padding: 0vh 2vh;">
+              <h2>About Us</h2>
+              <p>Welcome to <strong>Dublin Chocolates</strong>, a distinguished name in the world of artisanal confections. With a rich legacy dating back to our founding, we take pride in crafting premium chocolates that embody the perfect blend of tradition and innovation.</p>
+              <p>At Dublin Chocolates, our commitment to excellence is evident in every handcrafted creation. We meticulously select the finest ingredients, ensuring that each piece delivers a sensorial journey of unparalleled taste and quality. Our chocolatiers, driven by a passion for their craft, bring expertise and creativity to every aspect of the chocolate-making process.</p>
+              <p>As a company deeply rooted in our community, sustainability and ethical practices are at the core of our values. We believe in creating not just exquisite chocolates but also fostering a positive impact on the world around us. Join us on this delectable journey, and experience the true essence of Dublin Chocolates – where quality, craftsmanship, and community converge.</p>
+              </div></div>
+          </section>
+
+          <footer>
+            <p>&copy; 2023 Dublin Choclate's. All rights reserved.</p>
+            <p>Created by Ajeet Yadav</p>
+          </footer>
+
+    </body>
+    <script>
+              var timeOut = 2000;
+        var carousel_slideIndex = 0;
+        var autoOn = true;
+
+        autoSlides();
+
+        function autoSlides() {
+            timeOut = timeOut - 20;
+
+            if (autoOn == true && timeOut < 0) {
+                showSlides();
+            }
+            setTimeout(autoSlides, 20);
+        }
+
+        function prevSlide() {
+
+            timeOut = 2000;
+
+            var carousel_slides = document.getElementsByClassName("carousel_mySlides");
+            var carousel_dots = document.getElementsByClassName("carousel_dot");
+
+            for (i = 0; i < carousel_slides.length; i++) {
+              carousel_slides[i].style.display = "none";
+              carousel_dots[i].className = carousel_dots[i].className.replace(" active", "");
+            }
+            carousel_slideIndex--;
+
+            if (carousel_slideIndex > carousel_slides.length) {
+              carousel_slideIndex = 1
+            }
+            if (carousel_slideIndex == 0) {
+              carousel_slideIndex = 3
+            }
+            carousel_slides[carousel_slideIndex - 1].style.display = "block";
+            carousel_dots[carousel_slideIndex - 1].className += " active";
+        }
+
+        function showSlides() {
+
+            timeOut = 2000;
+
+            var carousel_slides = document.getElementsByClassName("carousel_mySlides");
+            var carousel_dots = document.getElementsByClassName("carousel_dot");
+
+            for (i = 0; i < carousel_slides.length; i++) {
+              carousel_slides[i].style.display = "none";
+              carousel_dots[i].className = carousel_dots[i].className.replace(" active", "");
+            }
+            carousel_slideIndex++;
+
+            if (carousel_slideIndex > carousel_slides.length) {
+              carousel_slideIndex = 1
+            }
+            carousel_slides[carousel_slideIndex - 1].style.display = "block";
+            carousel_dots[carousel_slideIndex - 1].className += " active";
+        }
+    </script>
+</html>
